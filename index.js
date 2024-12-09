@@ -6,6 +6,7 @@ const dotenv = require("dotenv").config();
 
 const userRoutes = require("./routes/user.routes");
 const companyRoutes = require("./routes/company.routes");
+const meetingRoutes = require("./routes/meeting.routes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,7 @@ app.get("/jwtid", requireAuth, (req, res) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/company", companyRoutes);
+app.use("/api/meeting", meetingRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

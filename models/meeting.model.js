@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const reunionSchema = new mongoose.Schema(
+const meetingSchema = new mongoose.Schema(
   {
     company_id: { type: String, required: true },
     date: { type: Date, required: true },
@@ -12,8 +12,12 @@ const reunionSchema = new mongoose.Schema(
         end: { type: Number, required: true },
       },
     ],
+    summary: { type: String },
+    pdf_report: { type: String },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("reunion", reunionSchema);
+const MeetingModel = mongoose.model("meeting", meetingSchema);
+
+module.exports = MeetingModel;
