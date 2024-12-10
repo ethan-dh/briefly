@@ -4,6 +4,7 @@ const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const app = express();
 const dotenv = require("dotenv").config();
 const path = require("path");
+const cors = require("cors");
 
 const userRoutes = require("./routes/user.routes");
 const companyRoutes = require("./routes/company.routes");
@@ -12,6 +13,8 @@ const meetingRoutes = require("./routes/meeting.routes");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(cors());
 
 // jwt
 app.get("*", checkUser);
