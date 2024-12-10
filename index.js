@@ -23,8 +23,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/company", companyRoutes);
 app.use("/api/meeting", meetingRoutes);
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.get("*", (req, res) => {
+  res.redirect("https://i.ytimg.com/vi/M6lkWjxg6-o/maxresdefault.jpg");
 });
 
 const PORT = process.env.PORT || 3000;
