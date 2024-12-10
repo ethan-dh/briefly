@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const app = express();
 const dotenv = require("dotenv").config();
+const path = require("path");
 
 const userRoutes = require("./routes/user.routes");
 const companyRoutes = require("./routes/company.routes");
@@ -21,6 +22,10 @@ app.get("/jwtid", requireAuth, (req, res) => {
 app.use("/api/user", userRoutes);
 app.use("/api/company", companyRoutes);
 app.use("/api/meeting", meetingRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
